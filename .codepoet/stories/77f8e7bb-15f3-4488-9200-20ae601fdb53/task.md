@@ -1,14 +1,15 @@
 # Project
-A personal portfolio website that showcases a professional's work, skills, and experience to potential employers or clients. It enables developers and designers to present their projects, demonstrate their capabilities, and make a strong first impression in a competitive job market.
-Stack: Unknown · Unknown · Unknown · Unknown
+This is a personal portfolio or resume website that allows visitors to view information about the site owner's background, experience, and projects. Users can navigate through different sections (Home, About, Experience) and submit contact inquiries through a contact form that sends emails directly to the site owner.
+Stack: JavaScript | React | Vite
+Patterns:
+- Error Handling: The codebase implements standard try/except blocks for error handling, providing basic protection against runtime failures. This approach covers common error scenarios but may benefit from more granular error classification and recovery strategies.
+- Testing Patterns: No test files detected — testing infrastructure may need to be established. Implementing a testing framework would help ensure code reliability and catch regressions as the codebase grows.
+- Async Patterns: The codebase makes heavy use of async/await patterns across 3 async functions (handler in api/contact.js, handleSubmit in src/components/ContactForm.jsx, and submitContactForm in src/services/formService.js) to handle asynchronous operations like API calls and form submissions concurrently.
+- File Organization: The codebase follows a clear route/controller separation with a dedicated service layer, organizing code into src, src/services, and src/components directories. This structure promotes separation of concerns and makes the codebase maintainable as it scales.
+- Code Style: The codebase is untyped, relying on JavaScript without static type checking. Adding a type system like TypeScript could improve code safety and developer experience by catching type-related errors at development time.
 
 # Goal: Comic-Style Portfolio Website
 Build a multi-page portfolio website using Vite and React, deployed on Vercel. The site should feature a paper-textured background with black-and-white comic book aesthetic, where blacks are rendered as softer ink tones rather than pure black. Implement four pages (home, about me, experience, contact) with emphasis on layout and visual design over initial content. Apply extremely vivid comic book colors sparingly as accents—primarily through underlined text links and small portions of images. The design should prioritize the paper-and-ink visual metaphor while maintaining a professional portfolio structure.
-
-## Done
-- Phase 2: Create global SVG filter definitions and CSS texture system — Created SVGFilters.jsx component with ink/paper/grain SVG filter definitions, colors.css with --ink-black, --paper-white, and accent color CSS variables, and textures.css with CSS-only paper background texture and fallback ink/shadow styles. Imported CSS globally in main.jsx and SVGFilters in App.jsx so all filters and styles are available across every page.
-- Phase 6: Build Contact page with form and serverless backend integration — Created ContactForm component with controlled inputs, client-side validation (required fields + email format), loading/success/error states, and comic-book styling. Added formService.js to POST to /api/contact. Built api/contact.js Vercel serverless function with input validation, in-memory rate limiting (5 req/IP/hour), and Nodemailer SMTP email delivery. Updated Contact.jsx page, .env.example with SMTP vars, vercel.json to preserve API routes, README with env variable docs, and installed nodemailer.
-- Phase 1: Set up Vite React project structure and deploy pipeline — Initialized Vite + React project with React Router, four pages (Home, About, Experience, Contact), a Navigation component with underlined links, vercel.json for Vercel deployment with SPA rewrites, .gitignore, .env.example, and updated README with setup instructions. Build verified with npm run build producing optimized dist/.
 
 # Your Task: Responsive layout system supports mobile, tablet, and desktop with consistent spacing
 
@@ -32,11 +33,6 @@ Establish a flexible, responsive layout foundation using CSS Grid and Flexbox th
 
 ## Completion
 Verify your changes work — run relevant tests or checks appropriate for this project.
-
-### Project hygiene
-You are scaffolding a new project. Before installing any dependencies:
-- Create a `.gitignore` appropriate for the stack (node_modules/, __pycache__/, .venv/, dist/, .env, etc.).
-- Include a `README.md` with setup instructions (clone → install → run).
 
 Then create `.codepoet/stories/77f8e7bb-15f3-4488-9200-20ae601fdb53/done.json` with this exact structure:
 ```json
