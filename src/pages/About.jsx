@@ -2,6 +2,7 @@ import PageContainer from '../components/layout/PageContainer'
 import Section from '../components/layout/Section'
 import Grid from '../components/layout/Grid'
 import SkillBadge from '../components/SkillBadge'
+import ComicImage from '../components/ComicImage'
 import styles from './About.module.css'
 
 const SKILLS = [
@@ -24,9 +25,12 @@ export default function About() {
     <PageContainer>
       <Section id="about-profile" accentColor="yellow">
         <div className={styles.profile}>
-          <div className={`paper-card ink-border ${styles.avatarPlaceholder}`}>
-            <span className="type-label">[ photo ]</span>
-          </div>
+          <ComicImage
+            alt="Profile photo"
+            accentColor="yellow"
+            placeholderLabel="[ photo ]"
+            className={`paper-card ink-border ${styles.avatar}`}
+          />
           <div className={styles.profileText}>
             <p className="type-label">About Me</p>
             <h1 className="ink-shadow">Your Name</h1>

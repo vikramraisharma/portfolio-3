@@ -1,13 +1,23 @@
+import ComicImage from './ComicImage'
 import styles from './ProjectCard.module.css'
 
-export default function ProjectCard({ title, description, tags = [], imagePlaceholder = true }) {
+export default function ProjectCard({
+  title,
+  description,
+  tags = [],
+  imageSrc,
+  imageAlt,
+  accentColor,
+}) {
   return (
     <article className={`paper-card ink-border ${styles.card}`}>
-      {imagePlaceholder && (
-        <div className={styles.imagePlaceholder}>
-          <span className="type-label">[ image ]</span>
-        </div>
-      )}
+      <ComicImage
+        src={imageSrc}
+        alt={imageAlt || title || 'Project screenshot'}
+        accentColor={accentColor}
+        placeholderLabel="[ image ]"
+        className={styles.cardImage}
+      />
       <div className={styles.content}>
         <h3 className={`ink-shadow ${styles.title}`}>{title || 'Project Title'}</h3>
         <p className={`ink-text ${styles.description}`}>
