@@ -1,4 +1,33 @@
+import { useEffect } from 'react'
+
 export default function SVGFilters() {
+  useEffect(() => {
+    // JS-based feature detection: check if filter: url() is actually applied.
+    // CSS.supports can report true on browsers where SVG filters render incorrectly,
+    // so we verify via direct style inspection.
+    let supported = false
+    try {
+      if (typeof CSS !== 'undefined' && CSS.supports) {
+        supported = CSS.supports('filter', 'url(#a)')
+      } else {
+        // Fallback: create a temporary element and check computed style
+        const el = document.createElement('div')
+        el.style.filter = 'url(#a)'
+        supported = el.style.filter !== ''
+      }
+    } catch {
+      supported = false
+    }
+
+    if (!supported) {
+      document.body.classList.add('no-svg-filters')
+    }
+
+    return () => {
+      document.body.classList.remove('no-svg-filters')
+    }
+  }, [])
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
