@@ -1,14 +1,20 @@
 import ContactForm from '../components/ContactForm'
+import PageContainer from '../components/layout/PageContainer'
+import Section from '../components/layout/Section'
 
 export default function Contact() {
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1 className="ink-shadow">Contact</h1>
-      <p style={{ marginBottom: '2rem', maxWidth: '560px', lineHeight: 1.7 }}>
-        Have a project in mind or want to connect? Fill out the form below and I'll get back to
-        you as soon as possible.
-      </p>
-      <ContactForm />
-    </main>
+    <PageContainer>
+      <Section>
+        <h1 className="ink-shadow">Contact</h1>
+        <p style={{ maxWidth: '560px', lineHeight: 1.7 }}>
+          Have a project in mind or want to connect? Fill out the form below and I'll get back to
+          you as soon as possible.
+        </p>
+      </Section>
+      <Section>
+        <ContactForm />
+      </Section>
+    </PageContainer>
   )
 }
