@@ -5,10 +5,10 @@ import Grid from '../components/layout/Grid'
 export default function Home() {
   return (
     <PageContainer>
-      <Section>
+      <Section id="home-hero" accentColor="red">
         <h1 className="ink-shadow">Home</h1>
       </Section>
-      <Section>
+      <Section id="home-featured" accentColor="blue">
         <Grid>
           <div className="paper-card">Featured Work</div>
           <div className="paper-card">Skills</div>
