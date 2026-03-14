@@ -12,35 +12,39 @@ Patterns:
 Build a multi-page portfolio website using Vite and React, deployed on Vercel. The site should feature a paper-textured background with black-and-white comic book aesthetic, where blacks are rendered as softer ink tones rather than pure black. Implement four pages (home, about me, experience, contact) with emphasis on layout and visual design over initial content. Apply extremely vivid comic book colors sparingly as accents—primarily through underlined text links and small portions of images. The design should prioritize the paper-and-ink visual metaphor while maintaining a professional portfolio structure.
 
 ## Done
+- **Phase 2: Create global SVG filter definitions and CSS texture system** — Global SVG filters and CSS textures are defined and ready. SVGFilters.jsx provides paper-noise, ink-soft, grain, and ink-paper filter definitions using feTurbulence/feGaussianBlur/feDisplacementMap. colors.css defines the ink/paper/accent color palette with CSS custom properties. textures.css creates a CSS-only paper texture background and fallback utility classes (.ink-shadow, .ink-border, .paper-card, .ink-text). SVGFilters is imported and rendered globally in App.jsx; all CSS files are imported in main.jsx. Build passes successfully.
+  Files: src/components/SVGFilters.jsx, src/styles/colors.css, src/styles/textures.css, src/App.jsx, src/main.jsx
+- **Phase 6: Build Contact page with form and serverless backend integration** — All acceptance criteria were already implemented: ContactForm component with name/email/subject/message fields, client-side validation (required fields + email format), loading/success/error states with user feedback; formService.js POSTing to /api/contact; api/contact.js serverless function using Nodemailer with input validation, SMTP env var configuration, and in-memory rate limiting (max 5 submissions per IP per hour). Build passes successfully.
+  Files: src/components/ContactForm.jsx, src/components/ContactForm.module.css, src/services/formService.js, api/contact.js, src/pages/Contact.jsx, .env.example, package.json
 - **Phase 1: Set up Vite React project structure and deploy pipeline** — Verified project setup: Vite+React builds successfully, vercel.json configures build command and SPA rewrites, React Router handles all four pages (Home, About, Experience, Contact), Navigation component links to each page, .env.example documents required environment variables, and all dependencies are in package.json.
   Files: package.json, vite.config.js, vercel.json, .env.example, src/App.jsx, src/main.jsx, src/components/Navigation.jsx, src/components/Navigation.module.css, src/pages/Home.jsx, src/pages/About.jsx, src/pages/Experience.jsx, src/pages/Contact.jsx
 - **Phase 3: Build responsive layout system with flexbox/grid for all pages** — Responsive layout system implemented with PageContainer, Section, and Grid components backed by layout.css. CSS custom properties define spacing (--spacing-xs through --spacing-3xl) and breakpoints (--bp-mobile: 480px, --bp-tablet: 768px, --bp-desktop: 1024px). Grid uses auto-fit/minmax for automatic column adjustment. All four pages (Home, About, Experience, Contact) use the layout components. Horizontal overflow prevented globally. Build passes.
   Files: src/styles/layout.css, src/components/layout/PageContainer.jsx, src/components/layout/Section.jsx, src/components/layout/Grid.jsx, src/pages/Home.jsx, src/pages/About.jsx, src/pages/Experience.jsx, src/pages/Contact.jsx, src/main.jsx
 
-# Your Task: SVG filters and CSS textures defined globally and ready for page application
+# Your Task: Vivid colors appear dynamically on active/hovered sections without overwhelming the design
 
 ## Description
-Build the core visual infrastructure by creating a global SVG filters file for ink and paper effects, establishing CSS-based texture generation, and setting up fallback styles. This phase creates the reusable visual components that will be applied across all pages.
+Build a system that applies vivid comic book colors dynamically to sections as users interact with or view them. This phase adds visual engagement through color accents that highlight the currently active or hovered section.
 
 ## Acceptance Criteria
-- SVG filters are defined once in a global component and accessible to all pages without errors
-- Paper texture is visible as a subtle background pattern across all pages
-- Softer black color (#2a2a2a) is used instead of pure black (#000000) throughout the site
-- CSS fallback styles (box-shadow, text-shadow) render correctly when SVG filters are disabled
-- All color variables (ink-black, paper-white, accent colors) are defined and usable in component styles
+- Vivid comic colors appear only on the currently active or hovered section
+- Accent colors are applied only to underlined links, small borders (2-4px), or small image portions (< 20%)
+- Color transitions are smooth (0.3s ease) when switching between sections
+- Accent colors do not appear on inactive sections or interfere with readability
+- Performance remains smooth when scrolling through pages with multiple sections
 
 ## Implementation Notes
-- Create SVGFilters.jsx component that renders a single <svg> with <defs> containing all filter definitions (ink blur, paper noise, grain effects) and export as reusable component
-- Define SVG filters: feTurbulence for paper noise (baseFrequency 0.02-0.05, octaves 4), feGaussianBlur for ink softness (stdDeviation 1-2), feDisplacementMap for texture variation
-- Create textures.css with CSS custom properties for paper background using radial-gradient and repeating patterns, avoiding image files
-- Define softer black color palette in colors.css using CSS variables: --ink-black: #2a2a2a, --paper-white: #f5f3f0, --accent-red: #ff1744 (used sparingly)
-- Add CSS fallback styles using box-shadow, text-shadow, and opacity to approximate ink/paper effects when SVG filters fail
-- Import SVGFilters component in src/App.jsx so filters are available globally on all pages
+- Create useActiveSection hook using Intersection Observer API to detect which section is currently in viewport, return section ID and update state on scroll
+- Define accent color palette in colors.css: --accent-red: #ff1744, --accent-yellow: #ffeb3b, --accent-blue: #00bfff, --accent-green: #00ff41 (vivid comic colors)
+- Create accents.css with classes for each accent color applied to underlines, borders, or small background highlights on active sections
+- Modify Section component to accept optional accentColor prop and apply dynamic class based on useActiveSection hook result
+- Apply accent colors only to: underlined text links, small border accents (2-4px), and small image portions (max 20% of image area)
+- Add smooth CSS transitions (transition: all 0.3s ease) to accent color changes for visual polish
 
 ## Completion
 Verify your changes work — run relevant tests or checks appropriate for this project.
 
-Then create `.codepoet/stories/17593900-ca93-42af-ae64-7f5ccbd07c94/done.json` with this exact structure:
+Then create `.codepoet/stories/adf6bec6-3801-4246-9940-e375527f5b18/done.json` with this exact structure:
 ```json
 {
   "status": "completed",
@@ -48,6 +52,6 @@ Then create `.codepoet/stories/17593900-ca93-42af-ae64-7f5ccbd07c94/done.json` w
   "files_changed": ["list", "of", "files"]
 }
 ```
-IMPORTANT: The file MUST be at exactly `.codepoet/stories/17593900-ca93-42af-ae64-7f5ccbd07c94/done.json`.
+IMPORTANT: The file MUST be at exactly `.codepoet/stories/adf6bec6-3801-4246-9940-e375527f5b18/done.json`.
 Do not create this file until you are fully done.
 Do NOT perform any git operations (no git add, commit, or push).

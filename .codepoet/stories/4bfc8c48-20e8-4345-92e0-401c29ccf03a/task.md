@@ -1,9 +1,19 @@
 # Project
-A personal portfolio website that showcases a professional's work, skills, and experience to potential employers or clients. It enables developers and designers to present their projects, demonstrate their capabilities, and make a strong first impression in a competitive job market.
-Stack: Unknown · Unknown · Unknown · Unknown
+This is a personal portfolio or resume website that allows visitors to view information about the site owner's background, experience, and projects. Users can navigate through different sections (Home, About, Experience) and submit contact inquiries through a contact form that sends emails directly to the site owner.
+Stack: JavaScript | React | Vite
+Patterns:
+- Error Handling: The codebase implements standard try/except blocks for error handling, providing basic protection against runtime failures. This approach covers common error scenarios but may benefit from more granular error classification and recovery strategies.
+- Testing Patterns: No test files detected — testing infrastructure may need to be established. Implementing a testing framework would help ensure code reliability and catch regressions as the codebase grows.
+- Async Patterns: The codebase makes heavy use of async/await patterns across 3 async functions (handler in api/contact.js, handleSubmit in src/components/ContactForm.jsx, and submitContactForm in src/services/formService.js) to handle asynchronous operations like API calls and form submissions concurrently.
+- File Organization: The codebase follows a clear route/controller separation with a dedicated service layer, organizing code into src, src/services, and src/components directories. This structure promotes separation of concerns and makes the codebase maintainable as it scales.
+- Code Style: The codebase is untyped, relying on JavaScript without static type checking. Adding a type system like TypeScript could improve code safety and developer experience by catching type-related errors at development time.
 
 # Goal: Comic-Style Portfolio Website
 Build a multi-page portfolio website using Vite and React, deployed on Vercel. The site should feature a paper-textured background with black-and-white comic book aesthetic, where blacks are rendered as softer ink tones rather than pure black. Implement four pages (home, about me, experience, contact) with emphasis on layout and visual design over initial content. Apply extremely vivid comic book colors sparingly as accents—primarily through underlined text links and small portions of images. The design should prioritize the paper-and-ink visual metaphor while maintaining a professional portfolio structure.
+
+## Done
+- **Phase 3: Build responsive layout system with flexbox/grid for all pages** — Responsive layout system implemented with PageContainer, Section, and Grid components backed by layout.css. CSS custom properties define spacing (--spacing-xs through --spacing-3xl) and breakpoints (--bp-mobile: 480px, --bp-tablet: 768px, --bp-desktop: 1024px). Grid uses auto-fit/minmax for automatic column adjustment. All four pages (Home, About, Experience, Contact) use the layout components. Horizontal overflow prevented globally. Build passes.
+  Files: src/styles/layout.css, src/components/layout/PageContainer.jsx, src/components/layout/Section.jsx, src/components/layout/Grid.jsx, src/pages/Home.jsx, src/pages/About.jsx, src/pages/Experience.jsx, src/pages/Contact.jsx, src/main.jsx
 
 # Your Task: Project builds locally, deploys to Vercel, and supports multi-page routing
 
@@ -27,11 +37,6 @@ Initialize a Vite-based React project with proper folder structure, configure Ve
 
 ## Completion
 Verify your changes work — run relevant tests or checks appropriate for this project.
-
-### Project hygiene
-You are scaffolding a new project. Before installing any dependencies:
-- Create a `.gitignore` appropriate for the stack (node_modules/, __pycache__/, .venv/, dist/, .env, etc.).
-- Include a `README.md` with setup instructions (clone → install → run).
 
 Then create `.codepoet/stories/4bfc8c48-20e8-4345-92e0-401c29ccf03a/done.json` with this exact structure:
 ```json
