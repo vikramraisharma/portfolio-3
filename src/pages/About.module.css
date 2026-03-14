@@ -1,0 +1,64 @@
+.profile {
+  display: flex;
+  gap: var(--spacing-2xl);
+  align-items: flex-start;
+}
+
+.avatarPlaceholder {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper-warm);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(42, 42, 42, 0.04) 10px,
+      rgba(42, 42, 42, 0.04) 11px
+    );
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.jobTitle {
+  margin-bottom: var(--spacing-sm);
+}
+
+.bioColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .avatarPlaceholder {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bioColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatarPlaceholder {
+    width: 120px;
+    height: 120px;
+  }
+}
