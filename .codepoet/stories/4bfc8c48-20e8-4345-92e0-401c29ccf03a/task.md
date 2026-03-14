@@ -11,6 +11,10 @@ Patterns:
 # Goal: Comic-Style Portfolio Website
 Build a multi-page portfolio website using Vite and React, deployed on Vercel. The site should feature a paper-textured background with black-and-white comic book aesthetic, where blacks are rendered as softer ink tones rather than pure black. Implement four pages (home, about me, experience, contact) with emphasis on layout and visual design over initial content. Apply extremely vivid comic book colors sparingly as accents—primarily through underlined text links and small portions of images. The design should prioritize the paper-and-ink visual metaphor while maintaining a professional portfolio structure.
 
+## Done
+- **Phase 3: Build responsive layout system with flexbox/grid for all pages** — Responsive layout system implemented with PageContainer, Section, and Grid components backed by layout.css. CSS custom properties define spacing (--spacing-xs through --spacing-3xl) and breakpoints (--bp-mobile: 480px, --bp-tablet: 768px, --bp-desktop: 1024px). Grid uses auto-fit/minmax for automatic column adjustment. All four pages (Home, About, Experience, Contact) use the layout components. Horizontal overflow prevented globally. Build passes.
+  Files: src/styles/layout.css, src/components/layout/PageContainer.jsx, src/components/layout/Section.jsx, src/components/layout/Grid.jsx, src/pages/Home.jsx, src/pages/About.jsx, src/pages/Experience.jsx, src/pages/Contact.jsx, src/main.jsx
+
 # Your Task: Project builds locally, deploys to Vercel, and supports multi-page routing
 
 ## Description
