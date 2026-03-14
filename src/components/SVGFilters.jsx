@@ -1,4 +1,33 @@
+import { useEffect } from 'react'
+
 export default function SVGFilters() {
+  useEffect(() => {
+    // JS-based feature detection: check if filter: url() is actually applied.
+    // CSS.supports can report true on browsers where SVG filters render incorrectly,
+    // so we verify via direct style inspection.
+    let supported = false
+    try {
+      if (typeof CSS !== 'undefined' && CSS.supports) {
+        supported = CSS.supports('filter', 'url(#a)')
+      } else {
+        // Fallback: create a temporary element and check computed style
+        const el = document.createElement('div')
+        el.style.filter = 'url(#a)'
+        supported = el.style.filter !== ''
+      }
+    } catch {
+      supported = false
+    }
+
+    if (!supported) {
+      document.body.classList.add('no-svg-filters')
+    }
+
+    return () => {
+      document.body.classList.remove('no-svg-filters')
+    }
+  }, [])
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +95,37 @@ export default function SVGFilters() {
             result="displaced"
           />
           <feGaussianBlur stdDeviation="0.8" in="displaced" />
+        </filter>
+
+        {/* Comic book ink effect for images — combines desaturation, paper texture, and subtle edge displacement */}
+        <filter id="inkEffect" x="-2%" y="-2%" width="104%" height="104%" colorInterpolationFilters="sRGB">
+          {/* Step 1: paper texture noise */}
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.04 0.03"
+            numOctaves="3"
+            seed="12"
+            stitchTiles="stitch"
+            result="paperNoise"
+          />
+          <feColorMatrix type="saturate" values="0" in="paperNoise" result="grayNoise" />
+          {/* Step 2: slight edge displacement for ink wobble */}
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="grayNoise"
+            scale="1.5"
+            xChannelSelector="R"
+            yChannelSelector="G"
+            result="displaced"
+          />
+          {/* Step 3: blend paper texture over displaced image */}
+          <feBlend in="displaced" in2="grayNoise" mode="multiply" result="textured" />
+          {/* Step 4: soft halo for ink edge feel */}
+          <feGaussianBlur stdDeviation="0.5" in="textured" result="softened" />
+          <feMerge>
+            <feMergeNode in="softened" />
+            <feMergeNode in="displaced" />
+          </feMerge>
         </filter>
       </defs>
     </svg>

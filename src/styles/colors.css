@@ -9,9 +9,9 @@
 
   /* Accent colors — used sparingly */
   --accent-red: #ff1744;
-  --accent-yellow: #ffd600;
-  --accent-blue: #2979ff;
-  --accent-green: #00c853;
+  --accent-yellow: #ffeb3b;
+  --accent-blue: #00bfff;
+  --accent-green: #00ff41;
 
   /* Functional aliases */
   --color-text: var(--ink-black);

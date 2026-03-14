@@ -1,0 +1,62 @@
+/* Wrapper for real images */
+.wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* CSS-only paper texture fallback via mix-blend */
+  transition: filter 0.2s ease;
+}
+
+/* CSS-only fallback when SVG filter is too slow */
+.cssOnly {
+  filter: none;
+  mix-blend-mode: multiply;
+  opacity: 0.92;
+  background-color: var(--paper-warm);
+}
+
+/* Placeholder for when no src is provided — matches paper texture aesthetic */
+.placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--paper-warm);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(42, 42, 42, 0.04) 10px,
+      rgba(42, 42, 42, 0.04) 11px
+    );
+  border-bottom: 2px solid var(--ink-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Vivid accent strip — covers ≤20% of image height (bottom edge) */
+.accentStrip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Square variant for profile photos */
+.wrapper.square,
+.placeholder.square {
+  aspect-ratio: 1 / 1;
+}

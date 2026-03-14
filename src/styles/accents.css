@@ -1,0 +1,63 @@
+/* Accent color transitions — applied to active sections only */
+
+/* Base: all accent-aware elements transition smoothly */
+.section a,
+.section .accent-border,
+.section .paper-card {
+  transition: border-color 0.3s ease, color 0.3s ease, text-decoration-color 0.3s ease, border-top-color 0.3s ease, border-left-color 0.3s ease;
+}
+
+/* Links: underline color only (no color override, preserves readability) */
+.section a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+
+/* Small border accent on paper-card: inactive = none */
+.section .paper-card {
+  border-top: 3px solid transparent;
+}
+
+/* ── Red accent ────────────────────────────────────────────── */
+.section--accent-red.section--active a {
+  text-decoration-color: var(--accent-red);
+}
+.section--accent-red.section--active .accent-border {
+  border-left: 3px solid var(--accent-red);
+}
+.section--accent-red.section--active .paper-card {
+  border-top-color: var(--accent-red);
+}
+
+/* ── Yellow accent ─────────────────────────────────────────── */
+.section--accent-yellow.section--active a {
+  text-decoration-color: var(--accent-yellow);
+}
+.section--accent-yellow.section--active .accent-border {
+  border-left: 3px solid var(--accent-yellow);
+}
+.section--accent-yellow.section--active .paper-card {
+  border-top-color: var(--accent-yellow);
+}
+
+/* ── Blue accent ───────────────────────────────────────────── */
+.section--accent-blue.section--active a {
+  text-decoration-color: var(--accent-blue);
+}
+.section--accent-blue.section--active .accent-border {
+  border-left: 3px solid var(--accent-blue);
+}
+.section--accent-blue.section--active .paper-card {
+  border-top-color: var(--accent-blue);
+}
+
+/* ── Green accent ──────────────────────────────────────────── */
+.section--accent-green.section--active a {
+  text-decoration-color: var(--accent-green);
+}
+.section--accent-green.section--active .accent-border {
+  border-left: 3px solid var(--accent-green);
+}
+.section--accent-green.section--active .paper-card {
+  border-top-color: var(--accent-green);
+}

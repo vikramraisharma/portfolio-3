@@ -1,0 +1,68 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow:
+    3px 3px 0 rgba(42, 42, 42, 0.5),
+    6px 6px 14px rgba(42, 42, 42, 0.15);
+}
+
+/* ComicImage fills the card top; border-bottom provided by the placeholder inside */
+.cardImage {
+  width: 100%;
+}
+
+.content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.title {
+  font-size: var(--text-xl);
+  margin: 0;
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--ink-mid);
+  line-height: var(--leading-normal);
+  flex: 1;
+  margin: 0;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  display: inline-block;
+}
+
+.tagLink {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--ink-black);
+  text-decoration-color: var(--accent-blue);
+}
+
+.tagLink:hover {
+  color: var(--accent-blue);
+  text-shadow: 0 0 4px rgba(0, 191, 255, 0.4);
+}
