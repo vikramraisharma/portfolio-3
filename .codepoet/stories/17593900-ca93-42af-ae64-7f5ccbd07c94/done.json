@@ -1,11 +1,11 @@
 {
   "status": "completed",
-  "summary": "Created SVGFilters.jsx component with ink/paper/grain SVG filter definitions, colors.css with --ink-black, --paper-white, and accent color CSS variables, and textures.css with CSS-only paper background texture and fallback ink/shadow styles. Imported CSS globally in main.jsx and SVGFilters in App.jsx so all filters and styles are available across every page.",
+  "summary": "Global SVG filters and CSS textures are defined and ready. SVGFilters.jsx provides paper-noise, ink-soft, grain, and ink-paper filter definitions using feTurbulence/feGaussianBlur/feDisplacementMap. colors.css defines the ink/paper/accent color palette with CSS custom properties. textures.css creates a CSS-only paper texture background and fallback utility classes (.ink-shadow, .ink-border, .paper-card, .ink-text). SVGFilters is imported and rendered globally in App.jsx; all CSS files are imported in main.jsx. Build passes successfully.",
   "files_changed": [
     "src/components/SVGFilters.jsx",
     "src/styles/colors.css",
     "src/styles/textures.css",
-    "src/main.jsx",
-    "src/App.jsx"
+    "src/App.jsx",
+    "src/main.jsx"
   ]
 }
