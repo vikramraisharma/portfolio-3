@@ -12,22 +12,9 @@
     6px 6px 14px rgba(42, 42, 42, 0.15);
 }
 
-.imagePlaceholder {
+/* ComicImage fills the card top; border-bottom provided by the placeholder inside */
+.cardImage {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: var(--paper-warm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid var(--ink-black);
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(42, 42, 42, 0.04) 10px,
-      rgba(42, 42, 42, 0.04) 11px
-    );
 }
 
 .content {
