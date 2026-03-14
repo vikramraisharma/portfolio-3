@@ -1,0 +1,22 @@
+:root {
+  /* Core ink & paper palette */
+  --ink-black: #2a2a2a;
+  --ink-dark: #1e1e1e;
+  --ink-mid: #3d3d3d;
+  --paper-white: #f5f3f0;
+  --paper-cream: #ede9e3;
+  --paper-warm: #e8e4dd;
+
+  /* Accent colors — used sparingly */
+  --accent-red: #ff1744;
+  --accent-yellow: #ffd600;
+  --accent-blue: #2979ff;
+  --accent-green: #00c853;
+
+  /* Functional aliases */
+  --color-text: var(--ink-black);
+  --color-text-muted: var(--ink-mid);
+  --color-bg: var(--paper-white);
+  --color-border: var(--ink-black);
+  --color-link: var(--accent-red);
+}
