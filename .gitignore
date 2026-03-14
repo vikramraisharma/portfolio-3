@@ -9,3 +9,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vite/
+
+memory-bank/
+document-hub/
+cline-docs/
