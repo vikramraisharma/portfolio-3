@@ -32,7 +32,14 @@ cp .env.example .env
 
 | Variable | Description |
 |---|---|
-| `VITE_CONTACT_FORM_ENDPOINT` | Serverless function endpoint for the contact form |
+| `CONTACT_EMAIL_TO` | Recipient email address for contact form submissions |
+| `CONTACT_EMAIL_FROM` | Sender email address used by the serverless function |
+| `SMTP_HOST` | SMTP server hostname |
+| `SMTP_PORT` | SMTP server port (default: 587) |
+| `SMTP_USER` | SMTP authentication username |
+| `SMTP_PASS` | SMTP authentication password |
+
+Set these in Vercel's project settings under **Environment Variables** for production deployments.
 
 ## Deployment
 
